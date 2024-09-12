@@ -10,11 +10,20 @@ import { Router } from '@angular/router';
   styleUrl: './dashboard.component.sass'
 })
 export class DashboardComponent {
-
+  private childWindow: Window | null = null;
   constructor(private authService: AuthService, private router: Router) { }
 
   openExternalSite() {
-    window.open("http://localhost:4210")?.focus();
+    if (!this.childWindow || this.childWindow.closed) {
+      this.childWindow = window.open("http://localhost:4210", "othermodule");
+    }
+
+    if (this.childWindow){
+      setTimeout(() => {
+        this.childWindow?.postMessage({action: 'teste'}, "http://localhost:4210")
+      }, 500)
+    }
+
   }
 
   logout() {

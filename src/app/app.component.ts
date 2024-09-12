@@ -17,12 +17,13 @@ export class AppComponent implements OnInit {
   constructor(private message: MessageService) { }
 
   ngOnInit(): void {
+    window.name = "dashboard"
     console.log("recarregou a página")
 
     // setInterval(() => {
-    //   console.log("Funciona");
+    //   window.postMessage("token-expirado", "http://localhost:4210");
     // }, 10000);
 
   }
-  
+
 }
