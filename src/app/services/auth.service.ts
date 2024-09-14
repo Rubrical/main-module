@@ -8,7 +8,7 @@ export class AuthService {
   constructor() { }
 
   login(username: string, password: string): boolean {
-    if (username === 'admin' && password === 'password') {
+    if (username === 'admin' && password === '123') {
       const mockJwt = 'mock-jwt-token';
       sessionStorage.setItem('token', mockJwt);
       return true;

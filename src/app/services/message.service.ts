@@ -7,8 +7,16 @@ export class MessageService {
 
   constructor() { }
 
-  sendMessageTokenIsExpired(message: string, targetDomain: string): void {
-    window.postMessage(message, targetDomain);
+  sendMessageTokenIsExpired(target: Window | null, message: any, targetDomain: string): void {
+    if (target === null) return;
+
+    setInterval(
+      () => {
+        target?.postMessage(message, targetDomain);
+      },
+      30000
+    );
+
   }
 
 }

@@ -18,12 +18,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     window.name = "dashboard"
-    console.log("recarregou a página")
-
-    // setInterval(() => {
-    //   window.postMessage("token-expirado", "http://localhost:4210");
-    // }, 10000);
-
   }
 
 }
